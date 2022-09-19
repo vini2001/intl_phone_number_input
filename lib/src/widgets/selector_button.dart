@@ -40,6 +40,7 @@ class SelectorButton extends StatelessWidget {
         ? countries.isNotEmpty && countries.length > 1
             ? DropdownButtonHideUnderline(
                 child: DropdownButton<Country>(
+                  isDense: true,
                   key: Key(TestHelper.DropdownButtonKeyValue),
                   hint: Item(
                     country: country,
@@ -62,11 +63,9 @@ class SelectorButton extends StatelessWidget {
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
               )
-        : MaterialButton(
+        : InkWell(
             key: Key(TestHelper.DropdownButtonKeyValue),
-            padding: EdgeInsets.zero,
-            minWidth: 0,
-            onPressed: countries.isNotEmpty && countries.length > 1 && isEnabled
+            onTap: countries.isNotEmpty && countries.length > 1 && isEnabled
                 ? () async {
                     Country? selected;
                     if (selectorConfig.selectorType ==
@@ -159,7 +158,7 @@ class SelectorButton extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                bottom: MediaQuery.of(context).viewInsets.bottom),
             child: DraggableScrollableSheet(
               builder: (BuildContext context, ScrollController controller) {
                 return Directionality(

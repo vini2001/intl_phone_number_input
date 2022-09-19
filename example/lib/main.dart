@@ -58,6 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ignoreBlank: false,
               autoValidateMode: AutovalidateMode.disabled,
+              inputDecoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.all(7),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              dropdownButtonHeight: 25,
               selectorTextStyle: TextStyle(color: Colors.black),
               initialValue: number,
               textFieldController: controller,
